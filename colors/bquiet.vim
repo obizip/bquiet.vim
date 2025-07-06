@@ -133,6 +133,11 @@ hi CursorIM guifg=#000000 guibg=#afff00 gui=NONE cterm=NONE
 hi ToolbarLine guifg=NONE guibg=#000000 gui=NONE cterm=NONE
 hi ToolbarButton guifg=#dadada guibg=#000000 gui=bold cterm=bold
 
+hi LspErrorVirtualText guifg=#FF4B00 guibg=#000000 gui=NONE cterm=NONE
+hi LspWarningVirtualText guifg=#F6AA00 guibg=#000000 gui=NONE cterm=NONE
+hi LspInfoVirtualText guifg=#00B06B guibg=#000000 gui=NONE cterm=NONE
+hi LspHintVirtualText guifg=#1971FF guibg=#000000 gui=NONE cterm=NONE
+
 " not important #999999
 
 " Background: dark
