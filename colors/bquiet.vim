@@ -1,179 +1,226 @@
-hi clear
-let g:colors_name = 'bquiet'
+highlight clear
 
-let s:t_Co = has('gui_running') ? -1 : (&t_Co ?? 0)
-
-hi! link Added Normal
-hi! link Changed Normal
-hi! link Removed Normal
-hi! link Terminal Normal
-hi! link StatusLineTerm StatusLine
-hi! link StatusLineTermNC StatusLineNC
-hi! link MessageWindow Pmenu
-hi! link PopupNotification Todo
-hi! link PopupSelected PmenuSel
-hi! link Boolean Constant
-hi! link Character Constant
-hi! link Conditional Statement
-hi! link Define PreProc
-hi! link Debug Special
-" hi! link Delimiter Special
-hi! link Delimiter Statement
-hi! link Exception Statement
-hi! link Float Constant
-hi! link Function Identifier
-hi! link Include PreProc
-hi! link Keyword Statement
-hi! link Label Statement
-hi! link Macro PreProc
-hi! link Number Constant
-" hi! link Operator Statement
-hi! link Operator Constant
-hi! link PreCondit PreProc
-hi! link Repeat Statement
-hi! link SpecialChar Special
-hi! link SpecialComment Special
-hi! link StorageClass Type
-hi! link String Constant
-hi! link Structure Type
-hi! link Tag Special
-hi! link Typedef Type
-hi! link lCursor Cursor
-hi! link debugBreakpoint ModeMsg
-hi! link debugPC CursorLine
-
-if (has('termguicolors') && &termguicolors) || has('gui_running')
-  let g:terminal_ansi_colors = ['#000000', '#d7005f', '#00af5f', '#d78700', '#0087d7', '#d787d7', '#00afaf', '#dadada', '#707070', '#ff005f', '#00d75f', '#ffaf00', '#5fafff', '#ff87ff', '#00d7d7', '#ffffff']
+if exists("syntax_on")
+    syntax reset
 endif
-hi Normal guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi ColorColumn guifg=NONE guibg=#1c1c1c gui=NONE cterm=NONE
-hi Conceal guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi CurSearch guifg=#ff5fff guibg=#000000 gui=reverse cterm=reverse
-hi Cursor guifg=NONE guibg=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
-hi CursorColumn guifg=NONE guibg=#303030 gui=NONE cterm=NONE
-hi CursorLine guifg=NONE guibg=NONE gui=NONE cterm=NONE
-hi CursorLineNr guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi DiffAdd guifg=#00af00 guibg=#000000 gui=reverse cterm=reverse
-hi DiffChange guifg=#87afd7 guibg=#000000 gui=reverse cterm=reverse
-hi DiffDelete guifg=#d75f5f guibg=#000000 gui=reverse cterm=reverse
-hi DiffText guifg=#d787d7 guibg=#000000 gui=reverse cterm=reverse
-hi Directory guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi EndOfBuffer guifg=#707070 guibg=NONE gui=NONE cterm=NONE
-hi ErrorMsg guifg=#dadada guibg=#000000 gui=reverse cterm=reverse
-hi FoldColumn guifg=#707070 guibg=NONE gui=NONE cterm=NONE
-hi Folded guifg=#707070 guibg=#000000 gui=NONE cterm=NONE
-hi IncSearch guifg=#ffaf00 guibg=#000000 gui=reverse cterm=reverse
-hi LineNr guifg=#585858 guibg=NONE gui=bold cterm=NONE
-hi MatchParen guifg=#ff00af guibg=NONE gui=bold cterm=bold
-hi ModeMsg guifg=#dadada guibg=NONE gui=bold cterm=bold
-hi MoreMsg guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi NonText guifg=#707070 guibg=NONE gui=NONE cterm=NONE
 
-" hi Pmenu guifg=#000000 guibg=#a8a8a8 gui=NONE cterm=NONE
-" hi PmenuMatch guifg=#d7005f guibg=#a8a8a8 gui=NONE cterm=NONE
-" hi PmenuExtra guifg=#000000 guibg=#a8a8a8 gui=NONE cterm=NONE
-" hi PmenuKind guifg=#000000 guibg=#a8a8a8 gui=bold cterm=bold
-" hi PmenuSbar guifg=#707070 guibg=#585858 gui=NONE cterm=NONE
-" hi PmenuSel guifg=#000000 guibg=#dadada gui=NONE cterm=NONE
-" hi PmenuMatchSel guifg=#d7005f guibg=#dadada gui=bold cterm=bold
-" hi PmenuExtraSel guifg=#000000 guibg=#dadada gui=NONE cterm=NONE
-" hi PmenuKindSel guifg=#000000 guibg=#dadada gui=bold cterm=bold
-" hi PmenuThumb guifg=#dadada guibg=#dadada gui=NONE cterm=NONE
+let g:colors_name = "mytheme"
 
-hi Pmenu guifg=NONE guibg=#3a3a3a gui=NONE cterm=NONE
-hi PmenuThumb guifg=NONE guibg=#767676 gui=NONE cterm=NONE
-hi PmenuSbar guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi PmenuSel guifg=NONE guibg=#585858 gui=NONE cterm=NONE
-hi PmenuKind guifg=#5f8787 guibg=#3a3a3a gui=NONE cterm=NONE
-hi PmenuKindSel guifg=#5f8787 guibg=#585858 gui=NONE cterm=NONE
-hi PmenuExtra guifg=#767676 guibg=#3a3a3a gui=NONE cterm=NONE
-hi PmenuExtraSel guifg=#9e9e9e guibg=#585858 gui=NONE cterm=NONE
-hi PmenuMatch guifg=#ffaf5f guibg=#3a3a3a gui=NONE cterm=NONE
-hi PmenuMatchSel guifg=#ffaf5f guibg=#585858 gui=NONE cterm=NONE
+function! s:hi(group, fg, bg, attr)
+  let l:fg   = a:fg   ==# "" ? "NONE" : a:fg
+  let l:bg   = a:bg   ==# "" ? "NONE" : a:bg
+  let l:attr = a:attr ==# "" ? "NONE" : a:attr
 
-hi Question guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi QuickFixLine guifg=#ff5fff guibg=#000000 gui=reverse cterm=reverse
-hi Search guifg=#00afff guibg=#000000 gui=reverse cterm=reverse
-hi SignColumn guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi SpecialKey guifg=#707070 guibg=NONE gui=bold cterm=bold
-hi SpellBad guifg=#d7005f guibg=NONE guisp=#d7005f gui=undercurl cterm=underline
-hi SpellCap guifg=#0087d7 guibg=NONE guisp=#0087d7 gui=undercurl cterm=underline
-hi SpellLocal guifg=#d787d7 guibg=NONE guisp=#d787d7 gui=undercurl cterm=underline
-hi SpellRare guifg=#00afaf guibg=NONE guisp=#00afaf gui=undercurl cterm=underline
-hi StatusLine guifg=#000000 guibg=#dadada gui=bold cterm=bold
-hi StatusLineNC guifg=#707070 guibg=#000000 gui=reverse cterm=reverse
-hi TabLine guifg=#707070 guibg=#000000 gui=reverse cterm=reverse
-hi TabLineFill guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi TabLineSel guifg=#000000 guibg=#dadada gui=bold cterm=bold
-hi Title guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi VertSplit guifg=#707070 guibg=#000000 gui=NONE cterm=NONE
-hi Visual guifg=#ffaf00 guibg=#000000 gui=reverse cterm=reverse
-hi VisualNOS guifg=NONE guibg=#303030 gui=NONE cterm=NONE
-hi WarningMsg guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi WildMenu guifg=#00afff guibg=#000000 gui=bold cterm=bold
-" hi Comment guifg=#707070 guibg=NONE gui=bold cterm=bold
-hi Comment guifg=#00af00 guibg=NONE gui=bold cterm=bold
-" hi Constant guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi Constant guifg=#87afd7 guibg=NONE gui=NONE cterm=NONE
-hi Error guifg=#ff005f guibg=#000000 gui=bold,reverse cterm=bold,reverse
-hi Identifier guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-" hi Ignore guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi Ignore guifg=#999999 guibg=NONE gui=NONE cterm=NONE
-" hi PreProc guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi PreProc guifg=#999999 guibg=NONE gui=NONE cterm=NONE
-" hi Special guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi Special guifg=#999999 guibg=NONE gui=NONE cterm=NONE
-" hi Statement guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi Statement guifg=#999999 guibg=NONE gui=NONE cterm=NONE
-hi Todo guifg=#00ffaf guibg=NONE gui=bold,reverse cterm=bold,reverse
-" hi Type guifg=#dadada guibg=NONE gui=NONE cterm=NONE
-hi Type guifg=#87afd7 guibg=NONE gui=NONE cterm=NONE
-hi Underlined guifg=#dadada guibg=NONE gui=underline cterm=underline
-hi CursorIM guifg=#000000 guibg=#afff00 gui=NONE cterm=NONE
-hi ToolbarLine guifg=NONE guibg=#000000 gui=NONE cterm=NONE
-hi ToolbarButton guifg=#dadada guibg=#000000 gui=bold cterm=bold
+  let l:cmd = "highlight " . a:group
+  let l:cmd .= " guifg=" . l:fg
+  let l:cmd .= " guibg=" . l:bg
+  let l:cmd .= " gui=" . l:attr
+  let l:cmd .= " cterm=" . l:attr
 
-hi LspErrorVirtualText guifg=#FF4B00 guibg=#000000 gui=NONE cterm=NONE
-hi LspWarningVirtualText guifg=#F6AA00 guibg=#000000 gui=NONE cterm=NONE
-hi LspInfoVirtualText guifg=#00B06B guibg=#000000 gui=NONE cterm=NONE
-hi LspHintVirtualText guifg=#1971FF guibg=#000000 gui=NONE cterm=NONE
+  execute l:cmd
+endfunction
 
-" not important #999999
+let s:bg0 = "#16181D"
+let s:bg1 = "#1D2026"
+let s:bg2 = "#292D35"
 
-" Background: dark
-" Color: dark0         #000000           16                black
-" Color: dark1         #d7005f           161               darkred
-" Color: dark2         #00af5f           35                darkgreen
-" Color: dark3         #d78700           172               darkyellow
-" Color: dark4         #0087d7           32                darkblue
-" Color: dark5         #d787d7           176               darkmagenta
-" Color: dark6         #00afaf           37                darkcyan
-" Color: dark7         #dadada           253               grey
-" Color: dark8         #707070           242               darkgrey
-" Color: dark9         #ff005f           197               red
-" Color: dark10        #00d75f           41                green
-" Color: dark11        #ffaf00           214               yellow
-" Color: dark12        #5fafff           75                blue
-" Color: dark13        #ff87ff           213               magenta
-" Color: dark14        #00d7d7           44                cyan
-" Color: dark15        #ffffff           231               white
-" Color: diffred       #d75f5f           167               darkred
-" Color: diffgreen     #00af00           34                darkgreen
-" Color: diffblue      #87afd7           110               darkblue
-" Color: diffpink      #d787d7           176               darkmagenta
-" Color: uipink        #ff00af           199               magenta
-" Color: uilime        #afff00           154               green
-" Color: uiteal        #00ffaf           49                green
-" Color: uiblue        #00afff           39                blue
-" Color: uipurple      #af00ff           129               darkmagenta
-" Color: uiamber       #ffaf00           214               darkyellow
-" Color: uiblack       #303030           236               darkgrey
-" Color: yasogrey      #1c1c1c           234               black
-" Color: linenrblack   #585858           240               darkgrey
-" Color: uicursearch   #ff5fff           207               magenta
-" Color: invisigrey    #a8a8a8           248               darkgrey
-" Color: errorred      #ff005f           197               red
-" Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
-" Term colors: dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
-" Background: any
-" vim: et ts=8 sw=2 sts=2
+let s:fg2 = "#777F8C"
+let s:fg1 = "#AAB1BB"
+let s:fg0 = "#D8DCE2"
+
+let s:accent_dark  = "#387D7A"
+let s:accent       = "#55A7A2"
+let s:accent_light = "#7CC7C1"
+
+" Core
+call s:hi("Normal",       s:fg0, s:bg0, "")
+call s:hi("Cursor",       s:bg0, s:fg0, "")
+call s:hi("CursorLine",   "",    s:bg1, "")
+call s:hi("CursorColumn", "",    s:bg1, "")
+call s:hi("ColorColumn",  "",    s:bg2, "")
+
+" Line numbers
+call s:hi("LineNr",       s:fg2, s:bg0, "")
+call s:hi("CursorLineNr", s:fg0, s:bg1, "bold")
+
+" Selection / Search
+call s:hi("Visual",      s:fg0, s:bg2, "")
+call s:hi("VisualNOS",   s:fg1, s:bg2, "")
+call s:hi("Search",      s:bg0, s:accent, "")
+call s:hi("IncSearch",   s:bg0, s:accent_light, "bold")
+call s:hi("CurSearch",   s:bg0, s:accent_light, "bold")
+call s:hi("Substitute",  s:bg0, s:accent, "bold")
+call s:hi("MatchParen", s:fg0, s:bg2, "bold,underline")
+
+" Semantic values
+call s:hi("Comment",  s:accent_light, "", "italic")
+call s:hi("Constant", s:accent,       "", "")
+call s:hi("Number",   s:accent,       "", "")
+call s:hi("String",   s:accent,       "", "")
+
+" Syntax structure
+call s:hi("Identifier",   s:fg0, "", "")
+call s:hi("Function",     s:fg0, "", "")
+call s:hi("Statement",    s:fg1, "", "")
+call s:hi("Operator",     s:accent_light, "", "")
+call s:hi("PreProc",      s:fg1, "", "")
+call s:hi("Type",         s:fg1, "", "")
+call s:hi("TypeDef",      s:fg1, "", "")
+call s:hi("StorageClass", s:fg2, "", "")
+call s:hi("Structure",    s:fg1, "", "")
+call s:hi("Label",        s:fg1, "", "")
+
+" Special values
+call s:hi("Special",    s:accent,       "", "")
+call s:hi("Underlined", s:accent,       "", "underline")
+call s:hi("Todo",       s:accent_light, "", "bold")
+
+" Low-priority UI
+call s:hi("Ignore",      s:fg2, "", "")
+call s:hi("SpecialKey",  s:fg2, "", "")
+call s:hi("NonText",     s:fg2, "", "")
+call s:hi("Whitespace",  s:fg2, "", "")
+call s:hi("EndOfBuffer", s:bg0, "", "")
+
+" Folds
+call s:hi("Folded",     s:fg2, s:bg1, "")
+call s:hi("FoldColumn", s:fg2, s:bg0, "")
+
+" Sign column
+call s:hi("SignColumn", "", s:bg0, "")
+
+" Messages
+call s:hi("Title",        s:fg0, "", "bold")
+call s:hi("Directory",    s:fg1, "", "")
+call s:hi("ModeMsg",      s:fg0, "", "bold")
+call s:hi("MoreMsg",      s:fg1, "", "")
+call s:hi("Question",     s:accent, "", "")
+call s:hi("MsgArea",      s:fg0, s:bg0, "")
+call s:hi("MsgSeparator", s:fg2, s:bg0, "")
+
+call s:hi("Error",      "", "", "underline")
+call s:hi("WarningMsg", "", "", "underline")
+
+" Diagnostics
+call s:hi("DiagnosticUnderlineError", "", "", "underline")
+call s:hi("DiagnosticUnderlineWarn",  "", "", "underline")
+call s:hi("DiagnosticUnderlineInfo",  "", "", "underline")
+call s:hi("DiagnosticUnderlineHint",  "", "", "underline")
+
+" Spell checking
+call s:hi("SpellBad",   "", "", "undercurl")
+call s:hi("SpellCap",   "", "", "undercurl")
+call s:hi("SpellLocal", "", "", "undercurl")
+call s:hi("SpellRare",  "", "", "undercurl")
+
+" Popup menu
+call s:hi("Pmenu",        s:fg1, s:bg1, "")
+call s:hi("PmenuSel", s:bg0, s:accent, "bold")
+call s:hi("PmenuSbar",    "",    s:bg2, "")
+call s:hi("PmenuThumb",   "",    s:fg2, "")
+call s:hi("PmenuMatch",   s:accent, s:bg1, "bold")
+call s:hi("PmenuMatchSel", s:bg0, s:accent_light, "bold")
+
+" Floating windows
+call s:hi("NormalFloat", s:fg0, s:bg1, "")
+call s:hi("FloatBorder", s:fg2, s:bg1, "")
+
+" Status line
+call s:hi("StatusLine",   s:fg0, s:bg2, "bold")
+call s:hi("StatusLineNC", s:fg2, s:bg1, "")
+
+" Tabs
+call s:hi("TabLine",     s:fg1, s:bg1, "")
+call s:hi("TabLineFill", s:fg2, s:bg1, "")
+call s:hi("TabLineSel",  s:fg0, s:bg2, "bold")
+
+" Window separators
+call s:hi("VertSplit",    s:bg2, s:bg0, "")
+call s:hi("WinSeparator", s:bg2, s:bg0, "")
+
+" Wild menu
+call s:hi("WildMenu", s:bg0, s:fg0, "bold")
+
+" Quickfix
+call s:hi("QuickFixLine", s:fg0, s:bg2, "bold")
+
+" Diff
+call s:hi("DiffAdd",    s:accent_dark, s:bg1, "")
+call s:hi("DiffChange", s:fg1,         s:bg2, "")
+call s:hi("DiffDelete", s:fg2,         s:bg1, "")
+call s:hi("DiffText",   s:accent,      s:bg2, "bold")
+
+" Generic added / changed / removed
+call s:hi("Added",   s:accent,      "", "")
+call s:hi("Changed", s:accent_dark, "", "")
+call s:hi("Removed", s:fg2,         "", "")
+
+" Language-specific
+call s:hi("cucumberTags", s:accent, "", "")
+call s:hi("htmlTagN",     s:fg1,    "", "")
+call s:hi("rubySymbol",   s:accent, "", "")
+
+" HTML
+call s:hi("htmlTag",        s:fg1,          "", "")
+call s:hi("htmlEndTag",     s:fg1,          "", "")
+call s:hi("htmlTagName",    s:fg0,          "", "")
+call s:hi("htmlArg",        s:fg1,          "", "")
+call s:hi("htmlString",     s:accent,       "", "")
+call s:hi("htmlComment",    s:accent_light, "", "italic")
+call s:hi("htmlSpecialChar", s:accent,      "", "")
+
+" CSS
+call s:hi("cssSelectorOp",       s:accent_light, "", "")
+call s:hi("cssSelectorOp2",      s:accent_light, "", "")
+call s:hi("cssClassName",        s:fg0,          "", "")
+call s:hi("cssIdentifier",       s:fg0,          "", "")
+call s:hi("cssTagName",          s:fg0,          "", "")
+call s:hi("cssProp",             s:fg1,          "", "")
+call s:hi("cssAttr",             s:fg1,          "", "")
+call s:hi("cssStringQ",          s:accent,       "", "")
+call s:hi("cssStringQQ",         s:accent,       "", "")
+call s:hi("cssColor",            s:accent,       "", "")
+call s:hi("cssValueNumber",      s:accent,       "", "")
+call s:hi("cssValueLength",      s:accent,       "", "")
+call s:hi("cssValueInteger",     s:accent,       "", "")
+call s:hi("cssComment",          s:accent_light, "", "italic")
+call s:hi("cssImportant",        s:accent_light, "", "bold")
+
+" Markdown
+call s:hi("markdownH1", s:fg0, "", "bold")
+call s:hi("markdownH2", s:fg0, "", "bold")
+call s:hi("markdownH3", s:fg0, "", "bold")
+call s:hi("markdownH4", s:fg1, "", "bold")
+call s:hi("markdownH5", s:fg1, "", "bold")
+call s:hi("markdownH6", s:fg1, "", "bold")
+
+call s:hi("markdownHeadingDelimiter", s:accent_light, "", "bold")
+
+call s:hi("markdownListMarker",        s:accent_light, "", "")
+call s:hi("markdownOrderedListMarker", s:accent_light, "", "")
+
+call s:hi("markdownBlockquote", s:accent_light, "", "italic")
+
+call s:hi("markdownBold",       s:fg0, "", "bold")
+call s:hi("markdownItalic",     s:fg1, "", "italic")
+call s:hi("markdownBoldItalic", s:fg0, "", "bold,italic")
+
+call s:hi("markdownCode",          s:accent,       "", "")
+call s:hi("markdownCodeBlock",     s:accent,       "", "")
+call s:hi("markdownCodeDelimiter", s:accent_light, "", "")
+
+call s:hi("markdownLinkText",          s:accent,       "", "underline")
+call s:hi("markdownUrl",               s:accent,       "", "underline")
+call s:hi("markdownLinkDelimiter",     s:accent_light, "", "")
+call s:hi("markdownLinkTextDelimiter", s:accent_light, "", "")
+
+call s:hi("markdownRule", s:accent_light, "", "")
+
+call s:hi("markdownEscape",           s:accent_light, "", "")
+call s:hi("markdownError",            "",             "", "underline")
+call s:hi("markdownId",               s:accent,        "", "")
+call s:hi("markdownIdDeclaration",    s:accent,        "", "")
+call s:hi("markdownAutomaticLink",    s:accent,        "", "underline")
+call s:hi("markdownUrlTitle",         s:accent,        "", "")
+call s:hi("markdownFootnote",         s:accent_light,  "", "")
+call s:hi("markdownFootnoteDefinition", s:accent_light, "", "")
