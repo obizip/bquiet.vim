@@ -4,7 +4,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "mytheme"
+let g:colors_name = "bquiet"
 
 function! s:hi(group, fg, bg, attr)
   let l:fg   = a:fg   ==# "" ? "NONE" : a:fg
