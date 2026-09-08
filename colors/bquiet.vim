@@ -80,7 +80,7 @@ call s:hi("Ignore",      s:fg2, "", "")
 call s:hi("SpecialKey",  s:fg2, "", "")
 call s:hi("NonText",     s:fg2, "", "")
 call s:hi("Whitespace",  s:fg2, "", "")
-call s:hi("EndOfBuffer", s:bg0, "", "")
+call s:hi("EndOfBuffer", s:fg2, "", "")
 
 " Folds
 call s:hi("Folded",     s:fg2, s:bg1, "")
