@@ -60,6 +60,7 @@ call s:hi("String",   s:accent,       "", "")
 " Syntax structure
 call s:hi("Identifier",   s:fg0, "", "")
 call s:hi("Function",     s:fg0, "", "")
+call s:hi("Delimiter",    s:fg0, "", "")
 call s:hi("Statement",    s:fg1, "", "")
 call s:hi("Operator",     s:accent_light, "", "")
 call s:hi("PreProc",      s:fg1, "", "")
