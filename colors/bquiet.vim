@@ -24,7 +24,6 @@ let s:bg0 = "#16181D"
 let s:bg1 = "#1D2026"
 let s:bg2 = "#292D35"
 
-let s:fg2 = "#777F8C"
 let s:fg1 = "#AAB1BB"
 let s:fg0 = "#D8DCE2"
 
@@ -40,7 +39,7 @@ call s:hi("CursorColumn", "",    s:bg1, "")
 call s:hi("ColorColumn",  "",    s:bg2, "")
 
 " Line numbers
-call s:hi("LineNr",       s:fg2, s:bg0, "")
+call s:hi("LineNr",       s:fg1, s:bg0, "")
 call s:hi("CursorLineNr", s:fg0, s:bg1, "bold")
 
 " Selection / Search
@@ -66,7 +65,7 @@ call s:hi("Operator",     s:accent_light, "", "")
 call s:hi("PreProc",      s:fg1, "", "")
 call s:hi("Type",         s:fg1, "", "")
 call s:hi("TypeDef",      s:fg1, "", "")
-call s:hi("StorageClass", s:fg2, "", "")
+call s:hi("StorageClass", s:fg1, "", "")
 call s:hi("Structure",    s:fg1, "", "")
 call s:hi("Label",        s:fg1, "", "")
 
@@ -76,15 +75,15 @@ call s:hi("Underlined", s:accent,       "", "underline")
 call s:hi("Todo",       s:accent_light, "", "bold")
 
 " Low-priority UI
-call s:hi("Ignore",      s:fg2, "", "")
-call s:hi("SpecialKey",  s:fg2, "", "")
-call s:hi("NonText",     s:fg2, "", "")
-call s:hi("Whitespace",  s:fg2, "", "")
-call s:hi("EndOfBuffer", s:fg2, "", "")
+call s:hi("Ignore",      s:fg1, "", "")
+call s:hi("SpecialKey",  s:fg1, "", "")
+call s:hi("NonText",     s:fg1, "", "")
+call s:hi("Whitespace",  s:fg1, "", "")
+call s:hi("EndOfBuffer", s:fg1, "", "")
 
 " Folds
-call s:hi("Folded",     s:fg2, s:bg1, "")
-call s:hi("FoldColumn", s:fg2, s:bg0, "")
+call s:hi("Folded",     s:fg1, s:bg1, "")
+call s:hi("FoldColumn", s:fg1, s:bg0, "")
 
 " Sign column
 call s:hi("SignColumn", "", s:bg0, "")
@@ -96,7 +95,7 @@ call s:hi("ModeMsg",      s:fg0, "", "bold")
 call s:hi("MoreMsg",      s:fg1, "", "")
 call s:hi("Question",     s:accent, "", "")
 call s:hi("MsgArea",      s:fg0, s:bg0, "")
-call s:hi("MsgSeparator", s:fg2, s:bg0, "")
+call s:hi("MsgSeparator", s:fg1, s:bg0, "")
 
 call s:hi("Error",      "", "", "underline")
 call s:hi("WarningMsg", "", "", "underline")
@@ -117,21 +116,21 @@ call s:hi("SpellRare",  "", "", "undercurl")
 call s:hi("Pmenu",        s:fg1, s:bg1, "")
 call s:hi("PmenuSel", s:bg0, s:accent, "bold")
 call s:hi("PmenuSbar",    "",    s:bg2, "")
-call s:hi("PmenuThumb",   "",    s:fg2, "")
+call s:hi("PmenuThumb",   "",    s:fg1, "")
 call s:hi("PmenuMatch",   s:accent, s:bg1, "bold")
 call s:hi("PmenuMatchSel", s:bg0, s:accent_light, "bold")
 
 " Floating windows
 call s:hi("NormalFloat", s:fg0, s:bg1, "")
-call s:hi("FloatBorder", s:fg2, s:bg1, "")
+call s:hi("FloatBorder", s:fg1, s:bg1, "")
 
 " Status line
 call s:hi("StatusLine",   s:fg0, s:bg2, "bold")
-call s:hi("StatusLineNC", s:fg2, s:bg1, "")
+call s:hi("StatusLineNC", s:fg1, s:bg1, "")
 
 " Tabs
 call s:hi("TabLine",     s:fg1, s:bg1, "")
-call s:hi("TabLineFill", s:fg2, s:bg1, "")
+call s:hi("TabLineFill", s:fg1, s:bg1, "")
 call s:hi("TabLineSel",  s:fg0, s:bg2, "bold")
 
 " Window separators
@@ -147,13 +146,13 @@ call s:hi("QuickFixLine", s:fg0, s:bg2, "bold")
 " Diff
 call s:hi("DiffAdd",    s:accent_dark, s:bg1, "")
 call s:hi("DiffChange", s:fg1,         s:bg2, "")
-call s:hi("DiffDelete", s:fg2,         s:bg1, "")
+call s:hi("DiffDelete", s:fg1,         s:bg1, "")
 call s:hi("DiffText",   s:accent,      s:bg2, "bold")
 
 " Generic added / changed / removed
 call s:hi("Added",   s:accent,      "", "")
 call s:hi("Changed", s:accent_dark, "", "")
-call s:hi("Removed", s:fg2,         "", "")
+call s:hi("Removed", s:fg1,         "", "")
 
 " Language-specific
 call s:hi("cucumberTags", s:accent, "", "")
